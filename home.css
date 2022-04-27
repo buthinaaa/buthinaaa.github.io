@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    display: flex;
+    width: 90%;
+    height: 10vh;
+    margin: auto;
+    align-items: center;
+
+}
+.logo-c, .nav, .cart{
+    display: flex;
+}
+.logo-c{
+flex: 1;
+}
+.logo{
+    font-weight: 400;
+    margin: 5px;
+}
+nav{
+flex: 2;
+}
+.nav{
+    justify-content: space-around;
+    list-style: none;
+}
+.cart{
+flex:1 ;
+justify-content: flex-end;
+}
+ul li{
+    color: #5f5f79;
+    font-size: 18px;
+
+}
+.dropbtn {
+    background-color: #ffffff;
+    color: #5f5f79;
+    padding: 0px;
+    font-size: 18px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #dadada;}
+
+a{
+    text-decoration: none;
+}
+.phones{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    min-height:80vh ;
+    align-items: center;
+}
+.text{
+    flex: 1;
+    margin-bottom: 30px;
+    margin-left: 18px;
+}
+h1{
+    font-weight: 44px;
+    font-weight: 500;
+    background: linear-gradient(to right,#494964, #6f6f89);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent ;
+    
+}
+.content{
+    flex: 1;
+}
+.photo img{
+   height: 65vh;
+   margin-left: 120px;
+}
+.photo{
+    flex: 1;
+    filter: drop-shadow(0px 5px 3px black);
+    animation: drop 1.5s ease ;
+    
+} 
+.link{
+    padding-top: 10px;
+}
+.section1 {
+    border: 3px solid  #d58d9b;
+    background:transparent;
+    color: #ffffff;
+    background-color:  #d58d9b;
+    border-radius: 50%;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    padding: 19px;
+}
+.shadow1{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: -1;
+    opacity: 0.2;
+    height: 80%;
+}
+.shadow2{
+    position: absolute;
+    top: 25%;
+    right: 25%;
+    z-index: -1;
+    height: 60%;
+    opacity: 0.2;
+}
+@keyframes drop{
+    0%{
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+.photo2{
+    flex: 1; 
+    margin-top: 70px;
+    height: 80%;
+}
+.shadow3{
+    position: absolute;
+    top: 89%;
+    right: 0px;
+    z-index: -1;
+    opacity: 0.3;
+    height: 80%;
+}
+.shadow4{
+    position: absolute;
+    top: 108%;
+    right: 25%;
+    z-index: -1;
+    height: 60%;
+    opacity: 0.3;
+}
+.photo2 img{
+    height: 60vh;
+   margin-left: 120px;}

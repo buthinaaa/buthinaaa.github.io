@@ -1,0 +1,291 @@
+* {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+background-color:#f7f7f7;
+height: fit-content;
+
+
+}
+
+ul{
+    list-style:none;
+    background-color: #d58d9b;
+}
+ul li{
+    display: inline-block;
+    background-color: #d58d9b;
+    padding: 5px;
+    text-decoration: solid;
+}
+
+.page{
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    grid-template-rows: 5% auto 4%;
+    grid-template-areas: "logo logo logo logo logo . nav nav nav "
+     "cont cont cont cont cont cont cont cont cont " 
+     "foot foot foot foot foot foot foot foot foot ";
+
+     background-color: #d58d9b;
+     height: max-content;
+ 
+}
+h1{
+    grid-area: logo;
+    background-color: #d58d9b;;
+}
+nav{
+    grid-area: nav;
+    background-color: #d58d9b;
+    padding: 10px;
+    align-items: baseline;
+    display: flex;
+    padding-left: 100px;
+}
+section{
+    grid-area: cont;
+}
+footer{
+    grid-area: foot;
+    background-color: #d58d9b;
+    margin-top: 6px;
+    
+}
+.content{
+    height: 1000px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto auto auto ;
+    grid-template-areas: "img img img img";
+    margin-bottom: 110px;
+    animation: drop 1.5s ease ;
+}
+ del{
+    text-decoration-color: red;
+}
+.img{
+    grid-area: img;
+    background-image: url(smartphone\ store.jpg);
+    padding: 100px;
+    background-position-x: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 250px;
+}
+h2{
+    background-color: rgb(217 180 180 / 90%);
+}
+a {
+    text-decoration: none;
+    color:black;
+    
+}
+.iphone12{
+    margin-top: 40px;
+    margin-bottom: -20px;
+    margin-left: 11%;
+    border: 4px solid #ffe6dd;
+    padding: 7px;
+    float: left;
+    width: 180px;
+    border-style: outset;
+    border-color: snow;
+    border-radius: 10%;
+    text-align: center;
+    padding-bottom: 39px;
+    transform: translate(0,0);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+
+    
+}
+.iphone12:hover{
+    transform: translate(0,-25px);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.realme8{
+    margin-top: 40px;
+    margin-bottom: -20;
+    margin-left: 11%;
+    border: 4px solid #ffe6dd;
+    padding: 7px;
+    float: left;
+    width: 180px;
+    border-style: outset;
+    border-color: snow;
+    border-radius: 10%;
+    text-align: center;
+    padding-bottom: 31px;
+    transform: translate(0,0);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+
+    
+}
+.realme8:hover{
+    transform: translate(0,-25px);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.vivo{
+    margin-top: 40px;
+    margin-bottom: -20;
+    margin-left: 11%;
+    border: 4px solid #ffe6dd;
+    padding: 7px;
+    float: left;
+    width: 180px;
+    border-style: outset;
+    border-color: snow;
+    border-radius: 10%;
+    text-align: center;
+    padding-bottom: 36px;
+    transform: translate(0,0);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.vivo:hover{
+    transform: translate(0,-25px);
+    transition-duration:1S ;
+    transition-timing-function:ease;
+    
+}
+.samsung{
+    margin-top: 40px;
+    margin-bottom: -20;
+    margin-left: 11%;
+    border: 4px solid #ffe6dd;
+    padding: 7px;
+    float: left;
+    width: 180px;
+    border-style: outset;
+    border-color: snow;
+    border-radius: 10%;
+    text-align: center;
+    padding-bottom: 5px;
+    transform: translate(0,0);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.samsung:hover{
+    transform: translate(0,-25px);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.reno{
+    margin-top: 50px;
+    margin-bottom: -20;
+    margin-left: 11%;
+    border: 4px solid #ffe6dd;
+    padding: 15px;
+    float: left;
+    width: 180px;
+    border-style: outset;
+    border-color: snow;
+    border-radius: 10%;
+    text-align: center;
+    padding-bottom: 48px;
+    transform: translate(0,0);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.reno:hover{
+    transform: translate(0,-25px);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.oppo{
+    margin-top: 40px;
+    margin-bottom: -20;
+    margin-left: 11%;
+    border: 4px solid #ffe6dd;
+    padding-top: 5px;
+    padding-bottom: 11px;
+    float: left;
+    width: 180px;
+    border-style: outset;
+    border-color: snow;
+    border-radius: 10%;
+    text-align: center;
+    padding-bottom: 21px;
+    transform: translate(0,0);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.oppo:hover{
+    transform: translate(0,-25px);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.xiaomi{
+    margin-top: 40px;
+    margin-bottom: -20;
+    margin-left: 11%;
+    border: 4px solid #ffe6dd;
+    padding-top: 5px;
+    padding-bottom: 11px;
+    float: left;
+    width: 180px;
+    border-style: outset;
+    border-color: snow;
+    border-radius: 10%;
+    text-align: center;
+    padding-bottom: 26px;
+    transform: translate(0,0);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.xiaomi:hover{
+    transform: translate(0,-25px);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.one_plus{
+    margin-top: 40px;
+    margin-bottom: -20;
+    margin-left: 11%;
+    border: 4px solid #ffe6dd;
+    padding-top: 5px;
+    padding-bottom: 11px;
+    float: left;
+    width: 180px;
+    border-style: outset;
+    border-color: snow;
+    border-radius: 10%;
+    text-align: center;
+    padding-bottom: 8px;
+    transform: translate(0,0);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+.one_plus:hover{
+    transform: translate(0,-25px);
+    transition-duration:1S ;
+    transition-timing-function: ease;
+    
+}
+@keyframes drop{
+    0%{
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
