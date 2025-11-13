@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buthaina Esam - AI Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #1a1a2e;
+            --accent: #00d9ff;
+            --accent-glow: rgba(0, 217, 255, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: #b4b4c8;
+            --gradient: linear-gradient(135deg, #00d9ff 0%, #7b2ff7 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.2rem 5%;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--gradient);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .quote-accent {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .skill-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        .skill-card li::before {
+            content: '▹ ';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 40px var(--accent-glow);
+        }
+
+        .project-card.featured {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(123, 47, 247, 0.1) 100%);
+        }
+
+        .project-header {
+            padding: 2rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .project-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 217, 255, 0.2);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.4rem 0.9rem;
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--accent);
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+            padding: 0 2rem 2rem;
+        }
+
+        .project-link {
+            padding: 0.6rem 1.2rem;
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 6px;
+            border: 1px solid var(--accent);
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .experience-item h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-item .role {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item ul {
+            list-style: none;
+        }
+
+        .experience-item li {
+            color: var(--text-secondary);
+            padding: 0.3rem 0;
+        }
+
+        .experience-item li::before {
+            content: '▹ ';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card.featured {
+                grid-column: span 1;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: rgba(10, 10, 15, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">BE</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Buthaina Esam Mohamed</h1>
+            <p class="subtitle">AI Engineer | Turning ML Models Into Real-World Solutions</p>
+            <p>Computer Science graduate passionate about building practical ML and NLP systems. Experienced with transformer models, hybrid retrieval, and local deployment. I focus on making AI work in production, not just in notebooks.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a Computer Science graduate from Helwan University with a passion for building AI systems that actually solve real problems. My journey in AI isn't just about understanding algorithms—it's about deploying them, optimizing them, and making them work in the real world.</p>
+                
+                <div class="quote-accent">
+                    "You have a subtle but clear sense of ethics — you care that AI is used responsibly."
+                </div>
+
+                <p>From quantizing models for efficient deployment to building hybrid retrieval systems, I love the challenge of taking cutting-edge research and turning it into practical, deployable solutions. Whether it's using FastAPI, Docker, or MLflow, I'm always thinking about the full pipeline—not just the model.</p>
+
+                <div class="quote-accent">
+                    "You're probably the kind of person who says 'Let me figure it out' rather than 'I don't know.'"
+                </div>
+
+                <p>Beyond coding, I've taught 200+ youth in soft skills and planning, and instructed 6th graders in game development. I believe in sharing knowledge and building communities around responsible AI.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>ML & Deep Learning</h3>
+                <ul>
+                    <li>PyTorch & TensorFlow</li>
+                    <li>Scikit-learn & Keras</li>
+                    <li>Model Optimization</li>
+                    <li>INT8 Quantization</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>NLP & Computer Vision</h3>
+                <ul>
+                    <li>Hugging Face Transformers</li>
+                    <li>spaCy & NLTK</li>
+                    <li>OpenCV</li>
+                    <li>BERT, BART, LLaMA, RoBERTa</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Deployment & MLOps</h3>
+                <ul>
+                    <li>FastAPI & Streamlit</li>
+                    <li>Docker & Git</li>
+                    <li>MLflow & DagsHub</li>
+                    <li>Azure Cloud</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Automation & Data</h3>
+                <ul>
+                    <li>n8n Workflow Automation</li>
+                    <li>Pandas & NumPy</li>
+                    <li>Seaborn & Plotly</li>
+                    <li>Feature Engineering</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <!-- Botify - Featured -->
+            <div class="project-card featured">
+                <div class="project-header">
+                    <span class="project-badge">🎓 Graduation Project</span>
+                    <h3>Botify – AI Chatbot Builder</h3>
+                    <p>A complete AI pipeline using 4 transformer models for intent detection, NER, sentiment analysis, and response generation. Features hybrid retrieval (BM25 + FAISS + KeyBERT) and INT8 quantization for optimized local deployment.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">BART</span>
+                        <span class="tech-tag">BERT</span>
+                        <span class="tech-tag">RoBERTa</span>
+                        <span class="tech-tag">LLaMA</span>
+                        <span class="tech-tag">FAISS</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Quantization</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/buthinaaa/botify" class="project-link" target="_blank">GitHub →</a>
+                    <a href="https://drive.google.com/file/d/1tHsqDZtBSDndK8mMPKoXPPa4lxAwyGUj/view" class="project-link" target="_blank">Demo →</a>
+                    <a href="https://drive.google.com/file/d/1Fq-9SAlTgJP35Lh0AmIrab4iKPJxRtaA/view" class="project-link" target="_blank">Documentation →</a>
+                </div>
+            </div>
+
+            <!-- Parkinson's Disease Tool -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Parkinson's Disease Diagnostic Tool</h3>
+                    <p>ML model detecting Parkinson's from 35 medical and lifestyle features with 90%+ accuracy. Deployed as interactive Streamlit app for real-time diagnosis.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Plotly</span>
+                        <span class="tech-tag">GridSearchCV</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/buthinaaa/Detecting-Parkinson-s-Building-a-Diagnostic-Tool" class="project-link" target="_blank">GitHub →</a>
+                    <a href="https://buthinaaa-detecting-parkinson-s-building-a-diagnosti-app-yhscvj.streamlit.app/" class="project-link" target="_blank">Live Demo →</a>
+                </div>
+            </div>
+
+            <!-- Transformer QA System -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Transformer Question Answering System</h3>
+                    <p>Compared BERT vs DistilBERT on SQuAD v1.1 dataset. Achieved 81.6% EM and 88.1% F1 with BERT. Integrated MLflow tracking and deployed Streamlit demo.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">BERT</span>
+                        <span class="tech-tag">DistilBERT</span>
+                        <span class="tech-tag">SQuAD</span>
+                        <span class="tech-tag">MLflow</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/buthinaaa/transformer-question-answering" class="project-link" target="_blank">GitHub →</a>
+                    <a href="https://transformer-question-answering.streamlit.app/" class="project-link" target="_blank">Live Demo →</a>
+                </div>
+            </div>
+
+            <!-- Arabic-to-English NMT -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Arabic-to-English Neural Machine Translation</h3>
+                    <p>Fine-tuned MarianMT on 56k sentence pairs from Global Voices dataset. Achieved BLEU score of 40.4 and METEOR of 0.70 on test data.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">MarianMT</span>
+                        <span class="tech-tag">Transformers</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/buthinaaa/arabic_to_english_translation_NLP_project" class="project-link" target="_blank">GitHub →</a>
+                    <a href="https://github.com/buthinaaa/arabic_to_english_translation_NLP_project/blob/main/Presentation/NLP%20translation%20model.pdf" class="project-link" target="_blank">Presentation →</a>
+                </div>
+            </div>
+
+            <!-- Resume-Job Matcher -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Resume–Job Matcher</h3>
+                    <p>NLP system matching candidate resumes with job descriptions using semantic similarity and skill extraction. Ranks candidates with MiniLM embeddings.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">MiniLM</span>
+                        <span class="tech-tag">Transformers</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/buthinaaa/screen_resume" class="project-link" target="_blank">GitHub →</a>
+                </div>
+            </div>
+
+            <!-- Text Summarization -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Text Summarization with BART</h3>
+                    <p>Fine-tuned DistilBART on DialogSum dataset. Achieved +5.2% ROUGE-1 improvement over baseline. Evaluated on CNN/DailyMail and DialogSum datasets.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">BART</span>
+                        <span class="tech-tag">Transformers</span>
+                        <span class="tech-tag">ROUGE</span>
+                        <span class="tech-tag">DialogSum</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/buthinaaa/Text-Summarization-Using-Pre-trained-Models" class="project-link" target="_blank">GitHub →</a>
+                </div>
+            </div>
+
+            <!-- Hand Gesture Classification -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Hand Gesture Classification</h3>
+                    <p>Implemented ResNet-34 from scratch and compared with DenseNet-121 and Xception. Achieved 95% accuracy on 10-class dataset with ROC evaluation.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ResNet-34</span>
+                        <span class="tech-tag">DenseNet</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Keras</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/buthinaaa/Gesture_classification" class="project-link" target="_blank">GitHub →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3>AI Superheroes</h3>
+                <div class="role">AI & Automation Intern</div>
+                <div class="date">Sept 2025 - Oct 2025 | Remote</div>
+                <ul>
+                    <li>Built two automation projects using n8n: an AI WhatsApp chatbot and a RAG-based chatbot</li>
+                    <li>Integrated workflow logic and external APIs for intelligent automation</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Elevvo Pathways</h3>
+                <div class="role">NLP Intern</div>
+                <div class="date">Sept 2025 - Oct 2025 | Remote</div>
+                <ul>
+                    <li>Completed 4 NLP projects covering text analysis, summarization, QA systems, and topic modeling</li>
+                    <li>Improved summarization accuracy by +5.2 ROUGE-1</li>
+                    <li>Compared BERT vs DistilBERT performance on SQuAD dataset</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>ischool</h3>
+                <div class="role">DEMI Coding Instructor</div>
+                <div class="date">March 2025 - April 2025 | Remote</div>
+                <ul>
+                    <li>Taught 6th grade students fundamentals of coding and game development</li>
+                    <li>Used Godot and GDScript to introduce programming concepts</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Ministry of Youth and Sports, Egypt</h3>
+                <div class="role">Coordination Member → Planning Leader → Trainer</div>
+                <div class="date">August 2022 – June 2025</div>
+                <ul>
+                    <li>Trained 200+ youth in soft skills and planning</li>
+                    <li>Coordinated national events with the Ministry of Youth and Sports</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Let's Build Something Together</h2>
+        <div class="contact-content">
+            <p>I'm currently seeking opportunities in AI/ML engineering. Whether you have a question, want to collaborate, or just want to connect, feel free to reach out!</p>
+            <div class="social-links">
+                <a href="mailto:bosinaesam78@gmail.com" class="social-link" target="_blank">
+                    📧 Email
+                </a>
+                <a href="https://linkedin.com/in/buthaina-esam" class="social-link" target="_blank">
+                    💼 LinkedIn
+                </a>
+                <a href="https://github.com/buthinaaa" class="social-link" target="_blank">
+                    💻 GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Buthaina Esam Mohamed. Built with passion for AI.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Giza, Egypt | Open to AI/ML opportunities worldwide</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        // Smooth scroll with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards and skill cards
+        document.querySelectorAll('.project-card, .skill-card, .experience-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
